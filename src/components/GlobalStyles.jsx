@@ -48,11 +48,12 @@ export default createGlobalStyle`
         content: '';
         content: none;
     }
-    h1, h2, h3, p, a{
+    *{
         font-family: var(--globalfont);
     }
     a {
         text-decoration: none;
         color: black;
+        
     }
 `;

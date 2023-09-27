@@ -11,13 +11,12 @@ const Header = () => {
 }
 
 const StyledWrapper = styled.div`
-    /* font-style: italic; */
-
     padding: 0.25rem;
     text-align: center;
+    /* border-bottom: 2px solid black; */
     a {
-        font-size: clamp(1rem, 1rem + 10vw, 4rem);
-        color: red;
+        font-size: clamp(1rem, 15vw, 5rem);
+        /* color: darkred; */
     }
 `
 
