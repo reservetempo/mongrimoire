@@ -17,7 +17,7 @@ const RecipeViewer = () => {
     }, [id])
 
     return (
-        <div> hello
+        <div>
             {recipe && <Recipe recipe={recipe} />}
         </div>
         

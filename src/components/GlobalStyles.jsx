@@ -3,8 +3,8 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     :root {
-      
       --globalfont: 'Bookman, URW Bookman L, serif';
+      --offwhite: #FFEBD4;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -34,8 +34,9 @@ export default createGlobalStyle`
     }
     body {
         line-height: 1.1;
-        background-image: linear-gradient(pink, white);
+        background-color: #8F0117;
         height: 100vh;
+        margin-bottom: 2rem;
     }
     ol, ul {
         list-style: none;
@@ -50,10 +51,11 @@ export default createGlobalStyle`
     }
     *{
         font-family: var(--globalfont);
+        color: #FFEBD4;
+        letter-spacing: 0.03rem;
     }
     a {
         text-decoration: none;
-        color: black;
         
     }
 `;

@@ -34,7 +34,7 @@ const StyledWrapper = styled.div`
         font-size: clamp(1.5rem, 7vw, 3rem);
         padding-bottom: 0.25rem;
         margin: 0.3rem 0;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid var(--offwhite);
     }
     p {
         font-size: clamp(1rem, 5vw, 1.25rem);
