@@ -1,14 +1,5 @@
 const pool = require('../db');
 
-const getRecipes = async (req, res) => {
-    try {
-        const allRecipes = await pool.query("SELECT * FROM recipes JOIN recipe_info ON recipes.recipe_id = recipe_info.id ORDER BY recipes.recipe_id ASC")
-        res.status(200).json(allRecipes.rows)
-    } catch (err) {
-        console.log(err.message)
-    }
-}
-
 const getRecipeNames = async (req, res) => {
     try {
         const recipeNames = await pool.query(
@@ -49,7 +40,9 @@ const getRecipe = async (req, res) => {
     try {
         const { id } = req.params;
         const recipe = await pool.query(
-            "SELECT * FROM recipes JOIN recipe_info ON recipes.recipe_id = recipe_info.id WHERE recipe_id = $1", [id]
+            `SELECT recipe_json 
+            FROM recipe_info
+            WHERE id = $1`, [id]
         )
         res.json(recipe.rows[0])
     } catch (err) {
@@ -58,7 +51,6 @@ const getRecipe = async (req, res) => {
 }
 
 module.exports = {
-    getRecipes,
     getRecipeNames,
     getRecipe,
     getRecipesBySection

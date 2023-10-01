@@ -5,7 +5,7 @@ const cors = require('cors');
 const pool = require('./db');
 const dotenv = require("dotenv");
 dotenv.config();
-const { getRecipes, getRecipe, getRecipeNames, getRecipesBySection } = require('./handlers/handleGet');
+const { getRecipe, getRecipeNames, getRecipesBySection } = require('./handlers/handleGet');
 const { submitRecipe, submitUpdateRecipe } = require('./handlers/handleSubmit');
 const { handleSearch } = require('./handlers/handleSearch');
 
@@ -25,7 +25,7 @@ app.get("/search", handleSearch)
 // update recipe 
 app.put("/recipes/:id", submitUpdateRecipe)
 
-//get all recipes
+//get recipe names by section
 app.get("/recipes/section/:id", getRecipesBySection)
 
 // get all recipe names

@@ -25,6 +25,8 @@ const submitRecipe = async(req, res) => {
 
     }
 }
+
+
 const submitUpdateRecipe = async (req, res) => {
     console.log("PUT REQUEST")
     try {
@@ -46,5 +48,7 @@ const submitUpdateRecipe = async (req, res) => {
         console.log(err.message)
     }
 }
+
+
 
 module.exports = { submitRecipe, submitUpdateRecipe }
