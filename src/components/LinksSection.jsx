@@ -30,8 +30,9 @@ const LinksSection = ({title, linkName}) => {
 
 const StyledWrapper = styled.div`
     margin: 0% 5%;
+    max-width: 800px;
     h3 {
-        font-size: clamp(1.5rem, 7vw, 3rem);
+        font-size: clamp(1.5rem, 7vw, 2.5rem);
         padding-bottom: 0.25rem;
         margin: 0.3rem 0;
         border-bottom: 2px solid var(--offwhite);
@@ -47,11 +48,9 @@ const StyledWrapper = styled.div`
 `
 
 const StyledLink = styled(Link)`
-    font-size: clamp(1.25rem, 4vw, 3rem);
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
     font-style: italic;
-    line-height: 1.5rem;
-
-
+    line-height: 1.7rem;
 `
 
 export default LinksSection

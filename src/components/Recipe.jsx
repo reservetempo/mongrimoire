@@ -18,14 +18,13 @@ const Section = ({title, items}) => {
     )
 }
 const StyledSubtitle = styled.h3`
-    margin: 0.5rem;
-    border-bottom: 2px solid var(--offwhite);
+    margin: 5%;
+    font-size: 1.25rem;
+    padding-bottom: 0.25rem;
+    /* border-bottom: 2px solid var(--offwhite); */
 `
-const StyledList = styled.ul`
-    margin: 2%;
-    border-radius: 1rem;
-    /* background-color: darkcyan; */
-    padding: 5% 0%;
+const StyledList = styled.ul`   
+    margin: 5% 0%;
 `
 const StyledItem = styled.li`
     margin: 0.5rem;
@@ -45,16 +44,16 @@ const Recipe = ({recipe}) => {
     const recipeIndex = idArray.findIndex(e => e === parseInt(id));
 
     return (
-        <>
+        <StyledWrapper>
             {id &&
-                <>
+                <div>
                     <StyledNav>
                         <StyledLink to={`/recipe/${idArray[recipeIndex === 0 ? idArray.length - 1 : recipeIndex- 1]}`}>←</StyledLink>
                         <StyledSection>{sectionId}</StyledSection>
                         <StyledLink to={`/recipe/${idArray[recipeIndex === idArray.length - 1 ? 0 : recipeIndex + 1]}`}>→</StyledLink>
                     </StyledNav>
                     <StyledTitle>{recipe_name}</StyledTitle>
-                    {recipe_author && <p>By {recipe_author}</p>}
+                    {recipe_author && <StyledAuthor>By {recipe_author}</StyledAuthor>}
                     
                     {<Section title={section1_name} items={section1_ing} />}
                     {section1_prep && <Section items={section1_prep} />}
@@ -63,29 +62,47 @@ const Recipe = ({recipe}) => {
                     {section3_ing && <Section title={section3_name} items={section3_ing} />}
                     {section3_prep && <Section items={section3_prep} />}
 
-                    <p>{drink_pairing}</p>
-                </>
+                    <StyledWineMatch>{drink_pairing}</StyledWineMatch>
+                </div>
             }
 
-        </>
+        </StyledWrapper>
     )
 }
+const StyledWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    >* {
+        max-width: 600px;
+    }
+`
+
 const StyledNav = styled.div`
     display: flex;
     justify-content: space-around;
+    width: clamp(250px, 500px, 600px);
+    /* max-width: 600px; */
 `
 const StyledSection = styled.p`
     text-align: center;
     font-size: 1.25rem;
-    padding-bottom: 1rem;;
+    padding-bottom: 1rem;
 `
 const StyledTitle = styled.h2`
-    font-size: clamp(1.5rem, 6vw, 4rem);
+    font-size: clamp(1.4rem, 6vw, 2rem);
     text-align: center;
+    max-width: 500px;
+`
+const StyledAuthor = styled.p`
+    text-align: center;
+    padding-top: 1rem;
 `
 const StyledLink = styled(Link)`
     text-decoration: none;
     font-size: 1.5rem;
+`
+const StyledWineMatch = styled.p`
+    margin: 5%;
 `
 
 export default Recipe

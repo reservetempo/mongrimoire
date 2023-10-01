@@ -8,18 +8,24 @@ const categories = ["Desserts", "Mains", "Sides", "Index"];
 const Homepage = () => {
 
     return (
-        <div>
+        <StyledWrapper>
             <StyledSubtitle>Cooking Magic Throughout the Year</StyledSubtitle>
             <StyledImage src="/public/images/1999.jpg" />
             <SearchBar />
-
-            <LinksSection title={"View recipes by seasons"} linkName={months}/>
-            <LinksSection title={"Other Sections"} linkName={categories}/>
-            <LinksSection title={"About the book"} />
-        </div>
+            <div>
+                <LinksSection title={"View recipes by seasons"} linkName={months}/>
+                <LinksSection title={"Other Sections"} linkName={categories}/>
+                <LinksSection title={"About the book"} />
+            </div>
+     </StyledWrapper>
     )
 }
 
+const StyledWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 const StyledSubtitle = styled.p`
     font-style: italic;
     text-align: center;

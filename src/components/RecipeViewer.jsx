@@ -9,7 +9,7 @@ const RecipeViewer = () => {
 
     const getData = async (id) => {
         const recipeData = await handleGet(`/recipes/${id}`);
-        setRecipe(recipeData);
+        setRecipe(recipeData.recipe_json);
     }
 
     useEffect(() => {
@@ -17,9 +17,9 @@ const RecipeViewer = () => {
     }, [id])
 
     return (
-        <div>
+        <>
             {recipe && <Recipe recipe={recipe} />}
-        </div>
+        </>
         
     )
 }

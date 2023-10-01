@@ -14,10 +14,8 @@ const Header = () => {
 const StyledWrapper = styled.div`
     padding: 0.25rem;
     text-align: center;
-    /* border-bottom: 2px solid black; */
     a {
         font-size: clamp(1rem, 15vw, 5rem);
-        /* color: darkred; */
     }
 `
 

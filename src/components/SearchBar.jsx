@@ -1,18 +1,23 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import { useListContext } from "./ListContext";
 
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const { updateIdArray, updateSectionId } = useListContext();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         try {
             const response = await fetch(`http://localhost:5000/search/?searchValue=${searchValue}`);
             const jsonResponse = await response.json();
-            console.log(jsonResponse.data)
-            setSearchResults(jsonResponse.data)
+            
+            setSearchResults(jsonResponse.data);
+            updateSectionId("Search Results");
+            updateIdArray(jsonResponse.data.map(e => parseInt(e.id)));
         } 
         catch (err) {
             console.log(err.message)
@@ -30,8 +35,8 @@ const SearchBar = () => {
                 {searchResults && 
                 searchResults.map(result => {
                     return (
-                        <li>
-                            <p>{result.recipe_name}</p>
+                        <li key={uuidv4()}>
+                            <Link to={`/recipe/${result.id}`}>{result.recipe_name} →</Link>
                         </li>
                     )
                 })}
@@ -50,6 +55,7 @@ const StyledForm = styled.form`
         font-style: italic;
         border-radius: 1rem;
         border: none;
+        color: black;
     }
     input:focus {
         outline: 0;

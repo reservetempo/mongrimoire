@@ -52,10 +52,11 @@ export default createGlobalStyle`
     *{
         font-family: var(--globalfont);
         color: #FFEBD4;
-        letter-spacing: 0.03rem;
+        letter-spacing: 0.04rem;
     }
     a {
         text-decoration: none;
+        color: var(--offwhite);
         
     }
 `;

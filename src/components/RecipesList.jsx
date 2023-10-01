@@ -25,21 +25,26 @@ const RecipesList = () => {
     }, [])
 
     return (
-        <>
+        <StyledWrapper>
             <StyledTitle>{id}</StyledTitle>
             <StyledList>
                 {recipes &&
                 recipes.map(recipe => {
                     return (
                         <li key={uuidv4()}>
-                            <Link to={`/recipe/${recipe.recipe_id}`}>{recipe.recipe_id}. {recipe.recipe_name.toLowerCase()} →</Link>
+                            <Link to={`/recipe/${recipe.recipe_id}`}>{recipe.recipe_id}. {recipe.recipe_name} →</Link>
                         </li>
                     )
                 })}
             </StyledList>
-        </>
+        </StyledWrapper>
     )
 }
+const StyledWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 const StyledTitle = styled.h3`
     text-align: center;
@@ -50,4 +55,5 @@ const StyledList = styled.ul`
     line-height: 1.5rem;
     margin: 0% 5%;
 `
+
 export default RecipesList
